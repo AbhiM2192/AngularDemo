@@ -1,0 +1,51 @@
+.text-success{
+    color:green;
+    font-size: 2rem;
+}
+.text-danger{
+    color:red;
+    font-size: 2rem;
+}
+.text-special{
+    
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.form-wrapper{
+    width:75vw;
+    height:30vh;
+    border:2px solid gray;
+    border-radius: 25px;
+    display: grid;
+    grid-template-rows:repeat(3,50px);
+    grid-template-columns:20px auto 20px;
+    grid-gap: 10px;
+    margin:auto;
+    padding-top:50px;
+}
+.uname,.upassword{
+    /* border:1px solid black;
+    border-radius: 5px; */
+    grid-column-start: 2;
+    grid-column-end:3;
+}
+.submit-btn{
+    grid-column-start: 2;
+    grid-column-end:3;
+}
+.bground-wrapper{
+    width:90vw;
+    margin:auto;
+    display:grid;
+    grid-template-columns: 200px repeat(3,100px);
+    grid-template-rows: auto;
+    grid-column-gap: 10px;
+}
+.bground-btn{
+    width:80px;
+    height:30px;
+    background-color:white;
+    color:brown;
+    border-radius: 5px;
+}

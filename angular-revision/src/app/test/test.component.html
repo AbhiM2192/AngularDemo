@@ -1,0 +1,38 @@
+<div *ngIf='parentAllowed'>
+    <h2 [ngClass]='message'>
+        {{title}}
+        </h2>
+        
+        <div *ngIf='greet'>{{greetUser()}}</div>
+        <div><input type="text" value='angularInput' [id]="myId" #useRef/></div>
+        <button (click)="changeTitle(useRef.value)">ChangeTitle</button>
+        <h2>Form</h2>
+        <div class='form-wrapper'>
+        
+            
+            
+                <input class='uname' type="text" [(ngModel)]='uname'/>
+            
+            
+                <input type="text" class='upassword' [(ngModel)]='upass'/>
+           
+            
+            
+            <button class='submit-btn' (click)="formSubmit($event)">Login</button>
+        </div>
+        <div *ngIf='greet;else elseBlock' >
+            <h2>
+                {{greetUser()}}
+            </h2>
+            
+        </div>
+        <ng-template #elseBlock>
+            <h2>Welcome Guest</h2>
+        </ng-template>
+        <div *ngIf='greet' class='bground-wrapper'>
+            <p [style]='bgroundLabel'>Choose background color:</p>
+            <button *ngFor='let color of colors' class='bground-btn' (click)='changeColor(color.text)'>{{color.text}}</button>
+        </div>
+        <button (click)='hideTest()'>Hide Test</button>
+</div>
+
