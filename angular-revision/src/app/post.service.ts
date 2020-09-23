@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 
 import {IPost} from './post/post';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,11 @@ export class PostService {
 
   getPost():Observable<IPost[]>{
     return this._http.get<IPost[]>('https://jsonplaceholder.typicode.com/posts')
+                      .pipe(catchError(this.handleError))
 
+  }
+
+  handleError(error:HttpErrorResponse){
+    return throwError(error.message || 'Server eror')
   }
 }

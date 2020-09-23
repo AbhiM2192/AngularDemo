@@ -8,13 +8,14 @@ import { PostService } from '../post.service';
 })
 export class PostComponent implements OnInit {
     posts = []
+    errMessage;
     constructor(private _postService:PostService){}
     ngOnInit(){
         this._postService.getPost()
             .subscribe((data) => {
               this.posts = data.slice(0,15)
               console.log(data)
-            }
+            },error => this.errMessage = error
             )
     }
 }

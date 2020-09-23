@@ -4,19 +4,20 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { TestComponent } from './test/test.component';
-import {PostComponent} from './post/post.component'
+
+
+import {AppRoutingModule,RoutingComponents} from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
-    PostComponent
+    ...RoutingComponents
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

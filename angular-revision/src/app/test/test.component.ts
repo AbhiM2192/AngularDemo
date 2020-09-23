@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-test',
@@ -28,12 +29,14 @@ export class TestComponent implements OnInit {
   }
   greet=false;
   colors=[{id:1,text:'red'},{id:2,text:'green'},{id:1,text:'blue'}]
-  constructor() {
+  constructor(private route:ActivatedRoute) {
     console.log('loaded constructor')
    }
 
   ngOnInit(): void {
-    console.log('loaded onInit')
+    console.log('loaded onInit');
+    console.log(this.route)
+     this.route.data.subscribe(v => this.parentAllowed = v)
   }
   greetUser(){
     return `hello ${this.uname}`;
